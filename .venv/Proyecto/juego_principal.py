@@ -1,9 +1,9 @@
 from tablero import Tablero
-from jugador import Jugador,Adivina,CreaCodigo
+from jugador import Adivina,CreaCodigo
 
 
 class JuegoPrincipal:
-    def __init__(self) -> None:
+    def __init__(self):
         self.tablero = Tablero()
         self.adivina = None
         self.crea_codigo = None
@@ -12,8 +12,7 @@ class JuegoPrincipal:
     # metodo inicializacion del juego
     
     def inicio(self):
-        jugador_input = input("Eres creador o adivinador")
-        
+        jugador_input = input("Eres creador o adivinador: ")
         if jugador_input == 'creador':
          self.crea_codigo = CreaCodigo(persona=True)
          self.adivina = Adivina(persona=False)
@@ -21,21 +20,35 @@ class JuegoPrincipal:
             self.crea_codigo = CreaCodigo(persona=False)
             self.adivina = Adivina(persona=True)
         else: 
-            print("Error digite correctamnte palabra")
+            print("Error digite correctamente palabra")
             return 
         self.tablero.definir_color(self.crea_codigo.obtener_codigo())
         
-    def juego(self):
-        if self.crea_codigo is None or self.adivina is None:
-            print("defina jugador")
-            return
         
+    def ejecucion_principal(self):
         for i in range(12):
             intento = self.adivina.obtener_codigo()
+            print(intento)
             retroalimentacion = self.tablero.validar_ganador(intento)
+            print(retroalimentacion)
             self.tablero.actualiza(intento,retroalimentacion)
             self.tablero.mostrar()
+            if retroalimentacion==["color_verde"]*4:
+                print("GANO")
+                return
+        
+        print("PERDIO")
             
+
+        
+
+
+
+jugar = JuegoPrincipal() 
+jugar.inicio() 
+jugar.ejecucion_principal()  
+
+
             
         
 
