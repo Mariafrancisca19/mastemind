@@ -33,11 +33,12 @@ class JuegoPrincipal:
             print(retroalimentacion)
             self.tablero.actualiza(intento,retroalimentacion)
             self.tablero.mostrar()
+            
             if retroalimentacion==["color_verde"]*4:
                 print(" FELICIDADES,HAZ GANADO")
                 return
         
-        print("HAZ PERDIDO,VUELVE A INTENTARLO")
+        print(f"HAZ PERDIDO,VUELVE A INTENTARLO el codigo era {self.tablero.color_secreto}")
             
 
     

@@ -28,7 +28,7 @@ class Tablero:
                 # print(f"Soy el intento {intento[i]}")
                 # print(f"Soy el copia color {copia_color[i]}")
             elif intento[i] in copia_color:
-                 retroalimentacion.append("color_amarrillo")
+                 retroalimentacion.append("color_amarillo")
             else: retroalimentacion.append("color_blanco")
             
         return retroalimentacion
@@ -41,14 +41,14 @@ class Tablero:
         fila_retroalimentacion = " ".join([
             fg(2)+"♡" + attr("reset") if adivina =="color_verde"
             
-            else fg(3) + "♡" + attr("reset") if adivina =="color_amarrilo"
+            else fg(3) + "♡" + attr("reset") if adivina =="color_amarillo"
             
             else "♡"
             
             for adivina in retroalimentacion
         ])
         
-        print(f"{fila_color}              {fila_retroalimentacion}")
+        print(f"{fila_color}            {fila_retroalimentacion}")
     
         
     def actualiza(self, intento,retroalimentacion):
