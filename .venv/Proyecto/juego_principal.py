@@ -34,21 +34,16 @@ class JuegoPrincipal:
             self.tablero.actualiza(intento,retroalimentacion)
             self.tablero.mostrar()
             if retroalimentacion==["color_verde"]*4:
-                print("GANO")
+                print(" FELICIDADES,HAZ GANADO")
                 return
         
-        print("PERDIO")
+        print("HAZ PERDIDO,VUELVE A INTENTARLO")
             
 
-        
-
-
+    
 
 jugar = JuegoPrincipal() 
 jugar.inicio() 
 jugar.ejecucion_principal()  
 
-
-            
-        
 

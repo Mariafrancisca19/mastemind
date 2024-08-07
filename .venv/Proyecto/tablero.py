@@ -19,15 +19,16 @@ class Tablero:
         
         
     def validar_ganador(self,intento):
+        
         retroalimentacion = []
         copia_color = self.color_secreto.copy()
         for i in range(4):
             if intento[i] == copia_color[i]:
                 retroalimentacion.append("color_verde")
-                copia_color[i] = None
+                # print(f"Soy el intento {intento[i]}")
+                # print(f"Soy el copia color {copia_color[i]}")
             elif intento[i] in copia_color:
                  retroalimentacion.append("color_amarrillo")
-                 copia_color.remove(intento[i])
             else: retroalimentacion.append("color_blanco")
             
         return retroalimentacion
